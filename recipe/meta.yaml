@@ -1,5 +1,5 @@
 {% set name = "brain-isotopic-distribution" %}
-{% set version = "1.4.0" %}
+{% set version = "1.5.2" %}
 
 package:
   name: "{{ name|lower }}"
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: e070cc75089c795da00d6ad458c1467dae7269d4cb05ccc6aec993a3785a3f59
+  sha256: 79b5184e1d75303cf0b77732b4118ca6576065f5ea846f3cb6a7f7893cf55bc1
 
 build:
-  number: 1000
+  number: 0
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vvv "
 
 requirements:
