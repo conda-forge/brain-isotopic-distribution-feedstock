@@ -1,17 +1,17 @@
 {% set name = "brain-isotopic-distribution" %}
-{% set version = "1.5.3" %}
+{% set version = "1.5.6" %}
 
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 616b13da0cd32fbb3ee76490d59a4bc36a1f75ba161dcde31170431650b5152c
+  sha256: ab0b7d9b7394d969b9835b54dc9ed7b4d0a593c408ec8aa2a35d413a0948ea44
 
 build:
   number: 0
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vvv "
+  script: '{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vvv '
 
 requirements:
   host:
@@ -30,7 +30,7 @@ about:
   home: https://github.com/mobiusklein/brainpy
   license: Apache Software
   license_family: APACHE
-  license_file: 
+  license_file:
   summary: Fast and efficient theoretical isotopic profile generation
   doc_url: http://mobiusklein.github.io
   dev_url: https://github.com/mobiusklein/brainpy
