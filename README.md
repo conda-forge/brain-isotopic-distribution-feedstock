@@ -1,11 +1,11 @@
-About brain-isotopic-distribution
-=================================
+About brain-isotopic-distribution-feedstock
+===========================================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/brain-isotopic-distribution-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/mobiusklein/brainpy
 
 Package license: Apache Software
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/brain-isotopic-distribution-feedstock/blob/main/LICENSE.txt)
 
 Summary: Fast and efficient theoretical isotopic profile generation
 
