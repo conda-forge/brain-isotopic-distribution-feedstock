@@ -2,24 +2,36 @@ schema_version: 1
 
 context:
   name: brain-isotopic-distribution
-  version: 1.5.3
+  version: 1.5.17
 
 package:
   name: ${{ name|lower }}
   version: ${{ version }}
 
 source:
-  url: https://pypi.io/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
-  sha256: 616b13da0cd32fbb3ee76490d59a4bc36a1f75ba161dcde31170431650b5152c
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/brain_isotopic_distribution-${{ version }}.tar.gz
+  sha256: c5965e9e9ab85829c5e018282930fe1d14f861c42a325e9a865acd97963cdac9
 
 build:
-  number: 1
-  script: ${{ PYTHON }} -m pip install . --no-deps --ignore-installed -vvv
+  number: 0
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
+  build:
+    - if: build_platform != target_platform
+      then:
+        - python
+        - cross-python_${{ target_platform }}
+        - cython
+
+    - ${{ compiler("c") }}
+    - ${{ stdlib("c") }}
   host:
-    - pip
     - python
+    - setuptools
+    - wheel
+    - cython
+    - pip
   run:
     - python
 
@@ -27,14 +39,20 @@ tests:
   - python:
       imports:
         - brainpy
-        - brainpy._c
-        - brainpy.test
-      pip_check: false
+      pip_check: true
+  - requirements:
+      run:
+        - pytest
+    files:
+      source:
+        - tests/
+    script:
+      - pytest tests/
 
 about:
-  license: Apache Software
-  license_file:
   summary: Fast and efficient theoretical isotopic profile generation
+  license: Apache-2.0
+  license_file: LICENSE
   homepage: https://github.com/mobiusklein/brainpy
   repository: https://github.com/mobiusklein/brainpy
   documentation: http://mobiusklein.github.io
@@ -42,3 +60,4 @@ about:
 extra:
   recipe-maintainers:
     - bgruening
+    - hadim
