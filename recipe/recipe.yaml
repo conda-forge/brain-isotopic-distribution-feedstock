@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: brain-isotopic-distribution
-  version: 1.5.17
+  version: "1.5.19"
 
 package:
   name: ${{ name|lower }}
@@ -10,10 +10,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/brain_isotopic_distribution-${{ version }}.tar.gz
-  sha256: c5965e9e9ab85829c5e018282930fe1d14f861c42a325e9a865acd97963cdac9
+  sha256: cad44fcb1ddbd26787dafb65345558df5119a7928b6e773fbb9dd5fd4f3334de
 
 build:
-  number: 1
+  number: 0
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
